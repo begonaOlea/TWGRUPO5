@@ -11,8 +11,7 @@ public class Producto {
 	//static - variable de clase
 	//final - constante
 	public static final double PRECIO_MINIMO = 1.2;
-	
-	
+		
 	
 	//constructor
 	public Producto(String s, double precio) {
@@ -34,9 +33,7 @@ public class Producto {
 	public Producto(int id, String descripcion) {
 		this(id,descripcion, PRECIO_MINIMO);
 	}
-	
-	
-	
+
 	
 	public void incrementarPrecio() {
 		int incremento =2;

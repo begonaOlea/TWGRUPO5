@@ -35,7 +35,7 @@ public class EjemploAmbitos {
 		
 		Producto p2 = new Producto(2, "zapato");
 		
-		
+		Producto p3 = new Producto(3,"coche");
 		
 		
 	
