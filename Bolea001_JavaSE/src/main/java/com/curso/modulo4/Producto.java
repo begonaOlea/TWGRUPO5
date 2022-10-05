@@ -50,7 +50,7 @@ public class Producto {
 		if (x > 50) {
 			y = 9;
 		}
-		z = y + x; 
+	//	z = y + x; 
 	}
 	
 }
