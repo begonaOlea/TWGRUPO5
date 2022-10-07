@@ -181,6 +181,23 @@ public class TresEnRayaTest {
     }
 	
 	
+     @Test
+     public void cuandoTodasCeldasLLenasThenEmpate(){
+    	 TresEnRaya tresEnRaya = new TresEnRaya();
+         String ganador = null;
+         ganador = tresEnRaya.jugar(0, 0); //X
+         ganador = tresEnRaya.jugar(0, 1); //O
+         ganador = tresEnRaya.jugar(0, 2); //X
+         ganador = tresEnRaya.jugar(1, 1); //O
+         ganador = tresEnRaya.jugar(2, 1); //X
+         ganador = tresEnRaya.jugar(1, 2); //O
+         ganador = tresEnRaya.jugar(1, 0); //X
+         ganador = tresEnRaya.jugar(2, 0); //O
+         ganador = tresEnRaya.jugar(2, 2); //X
+         assertEquals(ganador, "Hay empate!!");
+         
+     }
+     
 	
 
 }

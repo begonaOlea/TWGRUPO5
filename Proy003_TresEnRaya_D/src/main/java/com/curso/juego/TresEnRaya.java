@@ -74,6 +74,20 @@ public class TresEnRaya {
                 tablero[0][2] == ficha ){
                 return "" + ficha + " es el ganador";
         }
+        
+        boolean completadoTablero = true;
+        for(Character[] fila: tablero) {
+        	for(Character celda: fila) {
+        		if(celda == null) {
+        			completadoTablero = false;
+        			break;
+        			
+        		}
+        	}
+        }
+        if(completadoTablero) {
+        	return "Hay empate!!";
+        }
         return "No hay ganador";
 
 
