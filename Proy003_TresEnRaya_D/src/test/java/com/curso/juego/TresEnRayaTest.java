@@ -86,7 +86,7 @@ public class TresEnRayaTest {
     	if(juego.verFicha(0,0) == null ) {
     		fail("La ficha debe estar en esta posición y no hay ficha");
     	}
-    	
+    
     }
     
     
@@ -119,6 +119,66 @@ public class TresEnRayaTest {
     	}
     }
     
+    
+    @Test
+    public void cuandoJugadorNoGana(){
+    	TresEnRaya tresEnRaya = new TresEnRaya();
+        String ganador = tresEnRaya.jugar(1, 1);
+        assertEquals("No hay ganador" , ganador );
+    }
+    
+    @Test
+    public void cuandoJugadorHaceLineaHorizontalThenGana(){
+    	TresEnRaya tresEnRaya = new TresEnRaya();
+        String ganador = null;
+        ganador = tresEnRaya.jugar(1, 0); //X
+        ganador = tresEnRaya.jugar(0, 0); //O
+        ganador = tresEnRaya.jugar(1, 1); //X
+        ganador = tresEnRaya.jugar(0, 1); //O
+        ganador = tresEnRaya.jugar(1, 2); //X
+        assertEquals(ganador, "X es el ganador");
+        
+    }
+    
+    @Test
+    public void cuandoJugadorHaceLineaVertialThenGana(){
+    	TresEnRaya tresEnRaya = new TresEnRaya();
+        String ganador = null;
+        ganador = tresEnRaya.jugar(0, 1); //X
+        ganador = tresEnRaya.jugar(0, 0); //O
+        ganador = tresEnRaya.jugar(1, 1); //X
+        ganador = tresEnRaya.jugar(1, 0); //O
+        ganador = tresEnRaya.jugar(2, 1); //X
+        assertEquals(ganador, "X es el ganador");
+        
+    }
+          
+    
+    @Test
+    public void cuandoJugadorHaceLineaDiagonalIzdaThenGana(){
+    	TresEnRaya tresEnRaya = new TresEnRaya();
+        String ganador = null;
+        ganador = tresEnRaya.jugar(0,0); //X
+        ganador = tresEnRaya.jugar(0, 1); //O
+        ganador = tresEnRaya.jugar(1, 1); //X
+        ganador = tresEnRaya.jugar(1, 0); //O
+        ganador = tresEnRaya.jugar(2, 2); //X
+        assertEquals(ganador, "X es el ganador");
+        
+    }
+    
+     @Test
+    public void cuandoJugadorHaceLineaDiagonalDrchThenGana(){
+     TresEnRaya tresEnRaya = new TresEnRaya();
+        String ganador = null;
+        ganador = tresEnRaya.jugar(2, 0); //X
+        ganador = tresEnRaya.jugar(0, 1); //O
+        ganador = tresEnRaya.jugar(1, 1); //X
+        ganador = tresEnRaya.jugar(2, 2); //O
+        ganador = tresEnRaya.jugar(0, 2); //X
+        assertEquals(ganador, "X es el ganador");
+        
+    }
 	
 	
 	

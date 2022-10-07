@@ -39,11 +39,42 @@ public class TresEnRaya {
 		return n + n2;
 	}
 
-	public void jugar(int x, int y) {
+	public String jugar(int x, int y) {
 
 		validarCoordenadaX(x);
 		validarCoordenadaY(y);
+		
+		Character ficha = this.getJugadorActual();
         ponerFicha(x,y);
+
+        for(int i = 0 ; i < 3; i++){
+            //linea horizontal
+            if(tablero[i][0] == ficha &&
+                tablero[i][1] == ficha &&
+                tablero[i][2] == ficha ){
+                return "" + ficha + " es el ganador";
+            }
+            //linea vertical
+             if(tablero[0][i] == ficha &&
+                tablero[1][i] == ficha &&
+                tablero[2][i] == ficha ){
+                return "" + ficha + " es el ganador";
+            }
+            
+        }
+         //linea diagonal izda
+        if(tablero[0][0] == ficha &&
+                tablero[1][1] == ficha &&
+                tablero[2][2] == ficha ){
+                return "" + ficha + " es el ganador";
+        }
+         //linea diagonal drcha
+        if(tablero[2][0] == ficha &&
+                tablero[1][1] == ficha &&
+                tablero[0][2] == ficha ){
+                return "" + ficha + " es el ganador";
+        }
+        return "No hay ganador";
 
 
 	}// fin ponerFicha
@@ -86,6 +117,8 @@ public class TresEnRaya {
 	public Character getJugadorActual() {
 		return jugadorActual;
 	}
+	
+	
 	
 	
 	
