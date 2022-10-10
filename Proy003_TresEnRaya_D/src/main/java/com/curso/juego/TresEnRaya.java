@@ -90,7 +90,6 @@ public class TresEnRaya {
         }
         return "No hay ganador";
 
-
 	}// fin ponerFicha
 
 	public Character verFicha(int x, int y) {
