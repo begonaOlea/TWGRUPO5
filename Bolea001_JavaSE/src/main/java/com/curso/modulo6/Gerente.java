@@ -9,12 +9,16 @@ public class Gerente  extends Empleado{
 	
 	
 	
-//	// constructores
-//	public Gerente(String nombre, double salario, Date fNac, String dpto) {
-//		super(nombre, salario, fNac); // el constructor de la clase Empleado
-//		this.departamento = dpto;
-//	}
+	// constructores
+	public Gerente(String nombre, double salario, Date fNac, String dpto) {
+		super(nombre, salario, fNac); // el constructor de la clase Empleado
+		this.departamento = dpto;
+	}
 	
+	public Gerente(String nombre, String dpto) {
+		super(nombre); // el constructor de la clase Empleado
+		this.departamento = dpto;
+	}
 	
 	
 	public String getDepartamento() {

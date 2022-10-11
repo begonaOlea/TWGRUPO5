@@ -7,12 +7,12 @@ public class PruebaEmpleados {
 	
 	public static void main(String[] args) {
 		
-		Empleado e = new Empleado();
+		Empleado e = new Empleado("Luis");
 		e.setNombre("Luis");
 		e.setSalario(20000.0);
 		
 		
-		Gerente g = new Gerente();
+		Gerente g = new Gerente("Luis","i");
 		g.setNombre("Carlos");
 		g.setSalario(23423.0);
 		g.setDepartamento("INFORMÁTICA");
@@ -20,14 +20,14 @@ public class PruebaEmpleados {
 		System.out.println(e.getDetails());
 		System.out.println(g.getDetails());
 		
-		Administrativo a = new Administrativo();
+		Administrativo a = new Administrativo("Rob",32,null);
 		a.setNombre("Roberto");
 		a.setSalario(23423.0);
 		System.out.println(a.getDetails());
 		
 		
 		
-		Empleado e22 = new Gerente();
+		Empleado e22 = new Gerente("Rosa","s");
 		e22.setNombre("Rosa");
 		
 		System.out.println(e22.getDetails());
@@ -48,10 +48,11 @@ public class PruebaEmpleados {
 		
 		Empleado mario = new Empleado("Mario", 34000.0,new Date());
 		
-		Gerente g = new Gerente("BEGOÑA",450000.0,new Date(),"Desarrollo");
+		Gerente ggg = new Gerente("BEGOÑA",450000.0,new Date(),"Desarrollo");
 		
 		
-		
+		System.out.println(mario.getClass());
+		System.out.println(mario.toString());  //mario
 		
 		
 	}
