@@ -2,8 +2,6 @@ package com.flota.dominio;
 
 public class Moto extends Vehiculo {
 	
-	
-
 	public Moto(String matricula, double cargaMaxima) {
 		super(matricula, cargaMaxima);
 	}

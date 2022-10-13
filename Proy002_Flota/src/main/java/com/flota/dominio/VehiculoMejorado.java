@@ -9,22 +9,20 @@ package com.flota.dominio;
  * @version 1.0
  *
  */
-public abstract class Vehiculo {
+public class VehiculoMejorado {
 	
 	//atributos
 	private double cargaMaxima;
 	private String matricula;
 	private double cargaActual = 0;
-	protected int numCajas =0;
-	
-	String color = "Rojo";
+	private int numCajas =0;
 	
 	
 	//public final double  CARGA_MAXIMA_POR_DEFECTO = 5222.78;
 
 	
 	//constructores
-	protected Vehiculo(String matricula, double cargaMaxima) {
+	protected VehiculoMejorado(String matricula, double cargaMaxima) {
 		//validar matricula no null
 		//validar carga maxima >= y <=443343
 		this.matricula = matricula;
@@ -32,7 +30,7 @@ public abstract class Vehiculo {
 				
 	}
 	
-	protected Vehiculo(String matricula) {
+	protected VehiculoMejorado(String matricula) {
 		this(matricula,7999);
 	}
 	
@@ -70,14 +68,15 @@ public abstract class Vehiculo {
 	 * @throws RuntimeException  el peso de la caja no es válido o supera la carga maxima permitida
 	 * 
 	 */
-	public void cargarCaja(double peso) {
+	public void cargarCaja(double peso)throws CargaException {
 		//validar que el peso es > 0 
 		if(peso <= 0) {
-			throw new RuntimeException("La caja debe pesar algo");
+			throw new CargaException("La caja debe pesar algo",0);
 		}
 		// validar que cabe . Que no supera la carga máxima		
 		if(peso+cargaActual > cargaMaxima)  {
-			throw new RuntimeException("no caben mas cajas");
+			double exceso =  (peso + cargaActual) - cargaMaxima;
+			throw new CargaException("no caben mas cajas", exceso);
 		}
 		
 		//puedo cargar luego incremento carga actual y numero de cajas
@@ -86,9 +85,11 @@ public abstract class Vehiculo {
 				
 	}//fin metodo cargar Caja	
 	
+	
+	
 	//sobrecargo el método cargarCaja para que permita
 	//recibir un objeto Caja
-	public void cargarCaja(Caja c) {
+	public void cargarCaja(Caja c) throws CargaException {
 		cargarCaja(c.getPeso());
 	}
 	
@@ -101,7 +102,6 @@ public abstract class Vehiculo {
 		return numCajas;
 	}	
 	
-	public abstract double  consumoFuel();
 	
 	
 }

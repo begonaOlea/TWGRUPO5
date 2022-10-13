@@ -13,6 +13,7 @@ public class Caja {
 	   this.peso = 100;	   
 	}
 
+
 	
 	public double getPeso() {
 		return peso;

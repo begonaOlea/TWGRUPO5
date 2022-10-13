@@ -25,6 +25,9 @@ public class PruebaAbstraccion {
 		inf.generateText(System.out);
 		
 		
+		
+		
+		
 	}
 
 }
