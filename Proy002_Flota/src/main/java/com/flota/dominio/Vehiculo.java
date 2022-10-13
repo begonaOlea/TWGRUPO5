@@ -9,7 +9,7 @@ package com.flota.dominio;
  * @version 1.0
  *
  */
-public class Vehiculo {
+public abstract class Vehiculo {
 	
 	//atributos
 	private double cargaMaxima;
@@ -93,6 +93,8 @@ public class Vehiculo {
 	public int getNumCajas() {
 		return numCajas;
 	}	
+	
+	public abstract double  consumoFuel();
 	
 	
 }

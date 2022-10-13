@@ -36,6 +36,8 @@ public class Gerente  extends Empleado{
 //				+ “Salario: “ + salario + “\n”
 //				+ “Gerente de: “ + departamento;
 //	
+		
+		this.nombre = "*" + this.nombre;
 		return super.getDetails() +  "Gerente de: " + departamento ;
 	}
 	

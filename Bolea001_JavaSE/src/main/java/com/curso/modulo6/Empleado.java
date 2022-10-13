@@ -8,7 +8,7 @@ public class Empleado {
 	private static final double SALARIO_BASE = 15000.0;
 	
 	//atributos
-	private String nombre;
+	protected String nombre;
 	private double salario;
 	private Date fechaNacimiento;
 	
