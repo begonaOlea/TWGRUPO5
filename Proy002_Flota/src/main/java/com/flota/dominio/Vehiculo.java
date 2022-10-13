@@ -15,14 +15,14 @@ public abstract class Vehiculo {
 	private double cargaMaxima;
 	private String matricula;
 	private double cargaActual = 0;
-	private int numCajas =0;
+	protected int numCajas =0;
 	
 	
 	//public final double  CARGA_MAXIMA_POR_DEFECTO = 5222.78;
 
 	
 	//constructores
-	public Vehiculo(String matricula, double cargaMaxima) {
+	protected Vehiculo(String matricula, double cargaMaxima) {
 		//validar matricula no null
 		//validar carga maxima > 0 
 		this.matricula = matricula;
