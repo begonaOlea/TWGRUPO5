@@ -21,7 +21,7 @@ public class EjemplosMap {
 		map = new HashMap();  // no ordenado
 		
 		
-		Map<Integer, Punto> figura = new HashMap();
+		Map<Integer, Punto> figura = new HashMap();//HashMap();
 		
 		figura.put(1, new Punto(0,0));
 		figura.put(10, new Punto(4,6));
@@ -30,7 +30,7 @@ public class EjemplosMap {
 		
 		System.out.println(figura.get(10));
 		
-		figura.remove(1);
+		//figura.remove(1);
 		System.out.println(figura.get(1));
 		
 		
@@ -59,11 +59,11 @@ public class EjemplosMap {
 		
 		
 		
+		//HashMap   - recorro la colección a través key no orden
+		//LinkedHashMap   - recorro la colección a través key por orden de insercion
+		//TreeMap   - recorro la colección a través key por orden de Comparable/Comparato
 		
-		
-		
-		
-		
+
 		
 		
 	}
