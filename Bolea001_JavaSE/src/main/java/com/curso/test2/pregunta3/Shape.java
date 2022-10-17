@@ -28,7 +28,7 @@ class Rectangle extends Square{
 		len = x;
 		br = y;
 	}
-	void area ( ) { 
+	 void area ( ) { 
 		System.out.println ("Rectangle"); 
     }
 }
