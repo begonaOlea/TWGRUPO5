@@ -8,6 +8,7 @@ public class Producto implements Serializable{
 	private Integer idProducto;
 	private String descripcion;
 	private double precio;
+	private int stock;
 	
 	
 	public Producto() {
@@ -20,6 +21,7 @@ public class Producto implements Serializable{
 		this.idProducto = idProducto;
 		this.descripcion = descripcion;
 		this.precio = precio;
+		this.stock = 5;
 	}
 
 
@@ -52,6 +54,14 @@ public class Producto implements Serializable{
 		this.precio = precio;
 	}
 
+	
+	public int getStock() {
+		return stock;
+	}
+	
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
 
 	@Override
 	public String toString() {
