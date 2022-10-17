@@ -2,11 +2,16 @@ package com.curso.db;
 
 import static org.junit.Assert.*;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.curso.mercado.entidades.Producto;
 
 public class BaseDatosMercadoTest {
 
@@ -39,5 +44,14 @@ public class BaseDatosMercadoTest {
 
 		
 	}
+	
+	@Test
+	public void getAllProductos() {
+		
+		
+		Collection<Producto> lista = BaseDatosMercado.getAll();
+		assertEquals(lista.size(), 4);
+	}
+	
 
 }
