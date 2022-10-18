@@ -16,7 +16,7 @@
 
 
 
-<form action="AltaServlet" method="post">
+<form action="altaProducto" method="post">
 
    Nombre Producto: <input type="text" name="descripcion" value="" />
    
