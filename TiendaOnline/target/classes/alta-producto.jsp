@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
  <head>
@@ -27,6 +28,15 @@
  
 
 </form>
+
+<div class="border border-warning"> 
+<!--  
+<%@ page isELIgnored="false" %>   
+-->
+   ${requestScope.errorBego}  
+
+</div>
+
 
 
 

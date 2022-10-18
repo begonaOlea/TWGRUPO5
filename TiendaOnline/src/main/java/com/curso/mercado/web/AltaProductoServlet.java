@@ -1,24 +1,34 @@
 package com.curso.mercado.web;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.Response;
 
 import com.curso.mercado.entidades.Producto;
+import com.curso.mercado.servicios.ProductosService;
 
 public class AltaProductoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
+      
+	//ATRIBUTOS
+    ProductosService productoService = new ProductosService();
+	
+    //CONSTRUCTORES
     public AltaProductoServlet() {
         super();
         System.out.println(".... instanciando AltaProductoServlet");
     }
-
+    
+    //METODOS
 	protected void doPost(HttpServletRequest request, 
 			              HttpServletResponse response) throws ServletException, IOException {
+		
+	
 		
 		System.out.println("..... estoy en el doPost");
 		
@@ -43,8 +53,32 @@ public class AltaProductoServlet extends HttpServlet {
 			precio = Double.parseDouble(paramPrecio); //falta controlar excepcion
 		}
 			
-		Producto p = new Producto(null, paramDescripcion, precio);
-		System.out.println("das de alta " + p);
+		
+		if(msgError.length()>0) {
+			System.out.println("fallo " + msgError);
+			
+			//despache la pagina alta-producto.jsp
+			
+			//response.getWriter().append("error "  + msgError);
+			
+			request.setAttribute("errorBego", msgError);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("alta-producto.jsp");
+			rd.forward(request, response);
+			
+			
+		}else {
+			Producto p = new Producto(null, paramDescripcion, precio);
+			System.out.println("vamos a dar de alta " + p);
+			productoService.darAltaUnproducto(p);
+			
+			//despache la pagina lista-productos.jsp
+			
+			response.setContentType("text/html; charset=UTF-8");
+			
+
+			response.getWriter().append("ok grabó "  + p);
+		}
 		
 		
 		
