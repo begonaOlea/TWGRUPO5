@@ -1,9 +1,11 @@
 package com.curso.mercado.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +14,7 @@ import javax.xml.ws.Response;
 import com.curso.mercado.entidades.Producto;
 import com.curso.mercado.servicios.ProductosService;
 
+@WebServlet(urlPatterns = "altaProducto")
 public class AltaProductoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
@@ -72,12 +75,15 @@ public class AltaProductoServlet extends HttpServlet {
 			System.out.println("vamos a dar de alta " + p);
 			productoService.darAltaUnproducto(p);
 			
+			//response.getWriter().append("ok grabó "  + p);
 			//despache la pagina lista-productos.jsp
 			
-			response.setContentType("text/html; charset=UTF-8");
+			List<Producto> listaProductos = productoService.dameTodosLosProductos();
 			
-
-			response.getWriter().append("ok grabó "  + p);
+			request.setAttribute("lista", listaProductos);
+			RequestDispatcher rd = request.getRequestDispatcher("lista-productos.jsp");
+			rd.forward(request, response);
+			
 		}
 		
 		

@@ -19,7 +19,7 @@
     
     <a class="btn btn-primary" href="alta-producto.jsp" role="button">Alta Producto</a>
    
-    <a class="btn btn-primary" href="#" role="button">Lista Productos</a>
+    <a class="btn btn-primary" href="lista-productos.jsp" role="button">Lista Productos</a>
     
     
  
