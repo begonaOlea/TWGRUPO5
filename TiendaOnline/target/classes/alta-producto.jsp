@@ -20,7 +20,10 @@
 
    Nombre Producto: <input type="text" name="descripcion" value="" />
    
-   <button type="submit" class="btn btn-primary">Enviar</button>
+   <br>
+   Precio Producto:<input type="text" name="precioUnidad" value="10.0" />
+   
+   <button type="submit" class="btn btn-primary">Grabar</button>
  
 
 </form>
