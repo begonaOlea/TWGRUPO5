@@ -15,7 +15,7 @@
     <title>index</title>
   </head>
   <body>
-    <h1>Tienda Online</h1>
+    <h1>Tienda Online  ${applicationScope.tituloTienda}</h1>
     
     <div> usuario: ${sessionScope.usuario.nombre }</div>
     

@@ -3,6 +3,7 @@ package com.curso.mercado.web;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +21,21 @@ public class LoginServlet extends HttpServlet {
     public LoginServlet() {
         super();
         System.out.println(".... instanciando LoginServlet");
+        
+        
+    }
+    
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+    	//contexto de la aplicación
+    	// CREO UN ATRIBUTO DE ÁMBITO DE APLICACIÓN
+    	// es para todos los usuarios en todas las pagínas/Servlets/jsp
+    	System.out.println("..... " + config.getServletContext());
+    	config.getServletContext().setAttribute("tituloTienda", "LAS MARAVILLAS");
     }
 
+    
+    
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
