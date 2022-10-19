@@ -45,6 +45,23 @@
 	</table>
 
 
+     <hr>
+     
+     <form action="comprar" method="get">
+     
+      Producto:  
+      <select name="idProducto">
+    	  <c:forEach var="producto" items="${requestScope.lista}">
+      		<option value="${producto.idProducto}">${producto.descripcion}</option>
+     	 </c:forEach>
+      </select>
+      
+      Cantidad: <input type="number" name="cantidad" value="1" />
+      
+      <button type="submit" class="btn btn-primary">COMPRAR</button>
+      
+     </form>
+
 
 
 </body>

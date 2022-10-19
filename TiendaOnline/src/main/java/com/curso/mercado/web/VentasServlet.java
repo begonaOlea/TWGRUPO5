@@ -26,16 +26,24 @@ public class VentasServlet extends HttpServlet {
 		//leer parametro que recibe el idProducto
 		
 		String paramId = request.getParameter("idProducto");
+		String paramCantidad = request.getParameter("cantidad");
+		
+		
 		int idProductoComprar = 0;
 		if(paramId != null) {
 			idProductoComprar = Integer.parseInt(paramId);  //falta controloar excepcion
+		}
+		
+		int cantidad = 1;
+		if(paramCantidad !=null){
+			cantidad = Integer.parseInt(paramCantidad);
 		}
 
 		//comprar 1 unidad
 		VentasService servicio = new VentasService();
 		String mensaje  = "";
 		try {
-			servicio.comprarProducto(idProductoComprar, 1);
+			servicio.comprarProducto(idProductoComprar, cantidad);
 			//compra ok
 		     mensaje = "Has comprado una unidad ";
 			
@@ -48,10 +56,17 @@ public class VentasServlet extends HttpServlet {
 		
 	//	RequestDispatcher rd = request.getRequestDispatcher("lista-productos.jsp");
 		
+		//despacho la petición a ListaProductosServlet   que 
+		// esta se encarga de obtener lista y despachar a la pag jsp lista-productos.jsp
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/listaProductos");
 		rd.forward(request, response);
 		
 		
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req,resp);
 	}
 
 	
