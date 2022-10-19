@@ -32,7 +32,7 @@
 				<td>${producto.stock}</td>
 				<td>
 				   <a href="comprar?idProducto=${producto.idProducto}">Comprar 1 unidad</a>
-				
+				    
 				</td>
 				
 			</tr>

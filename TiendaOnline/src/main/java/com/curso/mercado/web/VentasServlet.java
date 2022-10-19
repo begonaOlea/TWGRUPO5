@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "comprar")
-public class VentasSerlet extends HttpServlet {
+public class VentasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public VentasSerlet() {
+    public VentasServlet() {
         super();
     }
 
