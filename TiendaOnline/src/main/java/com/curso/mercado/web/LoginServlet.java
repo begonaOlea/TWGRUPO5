@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.curso.mercado.entidades.Usuario;
 
@@ -38,10 +39,24 @@ public class LoginServlet extends HttpServlet {
 		
 		Usuario usuario = new Usuario(nombre, rol);
 		
-		request.setAttribute("usuario", usuario);
+		//modo 1. ÁMBITO DE PETICIÓN (REQUEST)
+//		request.setAttribute("usuario", usuario);	
+//		
+//		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+//		rd.forward(request, response);
 		
+		
+		//modo 2. ÁMBITO DE SESIÓN (MEJOR)
+		
+		HttpSession sesion= request.getSession();
+		
+		sesion.setAttribute("usuario", usuario);
+			
 		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
+		
+		
+		
 		
 		
 	}
