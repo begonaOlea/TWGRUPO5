@@ -30,9 +30,7 @@
 </form>
 
 <div class="border border-warning"> 
-<!--  
-<%@ page isELIgnored="false" %>   
--->
+
    ${requestScope.errorBego}  
 
 </div>

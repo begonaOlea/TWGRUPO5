@@ -22,6 +22,11 @@
 
     <div> usuario: ${sessionScope.usuario.nombre }</div>
 	
+    <div class="border border-warning"> 
+
+  	 ${requestScope.mensaje}  
+
+	</div>
 
 	<table>
 		<c:forEach var="producto" items="${requestScope.lista}">
