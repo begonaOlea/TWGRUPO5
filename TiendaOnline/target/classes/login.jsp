@@ -23,8 +23,12 @@
 	<form action="login" method="post">
 
 
-		<label for="nombreUsr">Nombre Usuario</label> <input type="text"
-			id="nombreUsr" name="nombre" /> <label for="rolUsr">Role</label> <select
+		<label for="nombreUsr">Nombre Usuario</label> 
+		<input type="text"
+			id="nombreUsr" name="nombre" /> 
+			
+	   <label for="rolUsr">Role</label> 
+	   <select
 			id="rolUsr" name="rol">
 			<option value="administrador">administrador</option>
 			<option value="cliente" selected>cliente</option>

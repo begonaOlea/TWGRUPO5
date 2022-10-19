@@ -5,7 +5,6 @@ import java.util.Objects;
 
 public class Usuario implements Serializable{
 
-	
 	private String nombre;
 	private String rol;
 	

@@ -14,7 +14,7 @@
 
 <h1>Tienda Online</h1>
 <h4>Alta de un producto Nuevo</h4>
-
+<div> usuario: ${sessionScope.usuario.nombre }</div>
 
 
 <form action="altaProducto" method="post">

@@ -20,7 +20,7 @@
 	<h1>Tienda Online</h1>
 	<h4>Lista de un productos</h4>
 
-
+    <div> usuario: ${sessionScope.usuario.nombre }</div>
 	
 
 	<table>
