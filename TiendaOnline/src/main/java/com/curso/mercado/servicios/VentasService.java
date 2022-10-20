@@ -14,6 +14,8 @@ public class VentasService {
 	// todos los metodos para gestionar un proceso de venta
 	
 	public void comprarProducto(int id, int cantidad) throws VentasException{
+		
+
 		 // caso1.  si comprar un producto que no existe.  lanzo una excepcion
 		Producto pAVender = productoDAO.getByID(id);
 		if ( pAVender == null) {

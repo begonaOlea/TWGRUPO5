@@ -29,7 +29,7 @@ public class VentasServlet extends HttpServlet {
 		String paramCantidad = request.getParameter("cantidad");
 		
 		
-		int idProductoComprar = 0;
+		int idProductoComprar = -1;
 		if(paramId != null) {
 			idProductoComprar = Integer.parseInt(paramId);  //falta controloar excepcion
 		}
