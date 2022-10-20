@@ -6,4 +6,17 @@
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+  	<servlet-name>ListaProductosServlet</servlet-name>
+  	<display-name>ListaProductosServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.curso.mercado.web.ListaProductosServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ListaProductosServlet</servlet-name>
+  	<url-pattern>/listaProductos</url-pattern>
+  </servlet-mapping>
+  <session-config>
+  		<session-timeout>30</session-timeout>
+  </session-config>
 </web-app>

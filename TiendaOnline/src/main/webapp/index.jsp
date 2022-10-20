@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -14,14 +15,15 @@
     <title>index</title>
   </head>
   <body>
-    <h1>Tienda Online</h1>
+    <h1>Tienda Online  ${applicationScope.tituloTienda}</h1>
     
-    <div> usuario: ${requestScope.usuario.nombre }</div>
     <div> usuario: ${sessionScope.usuario.nombre }</div>
     
-    <a class="btn btn-primary" href="alta-producto.jsp" role="button">Alta Producto</a>
-   
-    <a class="btn btn-primary" href="lista-productos.jsp" role="button">Lista Productos</a>
+    
+    <c:if  test="${sessionScope.usuario.rol == 'administrador'}" > 
+   		 <a class="btn btn-primary" href="alta-producto.jsp" role="button">Alta Producto</a>
+    </c:if>
+    <a class="btn btn-primary" href="listaProductos" role="button">Lista Productos</a>
     
     
  

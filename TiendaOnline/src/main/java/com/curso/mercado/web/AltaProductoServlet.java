@@ -14,7 +14,7 @@ import javax.xml.ws.Response;
 import com.curso.mercado.entidades.Producto;
 import com.curso.mercado.servicios.ProductosService;
 
-@WebServlet(urlPatterns = "altaProducto")
+@WebServlet(urlPatterns = "altaProducto",loadOnStartup = 2)
 public class AltaProductoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
@@ -25,6 +25,7 @@ public class AltaProductoServlet extends HttpServlet {
     public AltaProductoServlet() {
         super();
         System.out.println(".... instanciando AltaProductoServlet");
+    	
     }
     
     //METODOS
