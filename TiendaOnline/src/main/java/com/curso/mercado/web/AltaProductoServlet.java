@@ -57,6 +57,8 @@ public class AltaProductoServlet extends HttpServlet {
 		}
 			
 		
+		//------------
+		
 		if(msgError.length()>0) {
 			System.out.println("fallo " + msgError);
 			
@@ -71,6 +73,8 @@ public class AltaProductoServlet extends HttpServlet {
 			
 			
 		}else {
+		
+			
 			Producto p = new Producto(null, paramDescripcion, precio);
 			System.out.println("vamos a dar de alta " + p);
 			productoService.darAltaUnproducto(p);
@@ -81,7 +85,7 @@ public class AltaProductoServlet extends HttpServlet {
 			List<Producto> listaProductos = productoService.dameTodosLosProductos();
 			
 			request.setAttribute("lista", listaProductos);
-			RequestDispatcher rd = request.getRequestDispatcher("lista-productos.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/vistas/lista-productos.jsp");
 			rd.forward(request, response);
 			
 		}
