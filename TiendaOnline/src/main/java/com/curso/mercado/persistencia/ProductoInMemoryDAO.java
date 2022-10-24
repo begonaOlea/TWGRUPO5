@@ -34,4 +34,16 @@ public class ProductoInMemoryDAO implements GenericDAO<Producto> {
 		return BaseDatosMercado.findById(id);
 	}
 
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Producto entidad) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

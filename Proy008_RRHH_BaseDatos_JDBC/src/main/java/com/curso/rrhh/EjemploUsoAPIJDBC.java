@@ -137,7 +137,30 @@ public class EjemploUsoAPIJDBC {
 				System.out.printf("nombre del país %s es %s. %n",
 						codigo, nombrePaisRecuperado);
 				
-				modificarPaises(con,"AR","US");
+				//modificarPaises(con,"AR","US");
+				
+				
+				String crearTablaProducto = "CREATE TABLE HR.PRODUCTOS "
+						+ "   (	ID_PRODUCTO NUMBER NOT NULL ENABLE PRIMARY KEY,"
+						+ "	DESCRIPCION VARCHAR2(50 BYTE) NOT NULL ENABLE,"
+						+ "	PRECIO NUMBER DEFAULT 0 NOT NULL ENABLE, "
+						+ "	STOCK NUMBER DEFAULT 0 NOT NULL ENABLE) ";
+			//	con.createStatement().execute(crearTablaProducto);
+				
+				
+				String insertProducto1 = "INSERT INTO HR.PRODUCTOS " +
+				   "(ID_PRODUCTO, DESCRIPCION, PRECIO, STOCK) " + 
+				   " VALUES (1, 'Televisión', 1522.8,5)";
+				String insertProducto2 = "INSERT INTO HR.PRODUCTOS " +
+						   "(ID_PRODUCTO, DESCRIPCION, PRECIO, STOCK) " + 
+						   " VALUES (2, 'Zapatos', 152.8,20)";
+				
+			//	con.createStatement().execute(insertProducto1);
+			//	con.createStatement().execute(insertProducto2);
+				
+				
+				
+				
 				
 			} catch (SQLException e) {
                 System.out.println("Error conexión " + e.getMessage());
