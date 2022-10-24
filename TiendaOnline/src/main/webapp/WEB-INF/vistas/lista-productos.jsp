@@ -1,3 +1,5 @@
+<%@page import="com.curso.mercado.servicios.ProductosService"%>
+<%@page import="com.curso.mercado.entidades.Producto"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -20,10 +22,14 @@
 	<h1>Tienda Online</h1>
 	<h4>Lista de un productos</h4>
 
+<!--  EL tratan los null y devuelve es vacio -->
+
     <div> usuario: ${sessionScope.usuario.nombre }</div>
 	
     <div class="border border-warning"> 
-
+    
+   
+  
   	 ${requestScope.mensaje}  
 
 	</div>

@@ -20,6 +20,13 @@ public class ListaProductosServlet extends HttpServlet {
 
     }
 
+    
+    // en el navegador pones /tienda/listaProductos  
+     // S.A. lee web.xml  url la atiende este Servlet  
+    //  enlace / direccion del naveador -> GET
+    // viaja la petición desde el navegador al serlet ListaProductosServlet
+    // en modo get por lo que llamamos al método doGet
+    // le pasa como argumentos obj HttpServletRequest y HttpServletRespose
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// recuperar todos los productos
@@ -30,7 +37,7 @@ public class ListaProductosServlet extends HttpServlet {
 		request.setAttribute("lista", lista);
 		
 		// despachar la peticion a lista-productos.jsp
-		RequestDispatcher rd = request.getRequestDispatcher("lista-productos.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/vistas/lista-productos.jsp");
 		rd.forward(request, response);
 	
 	}
