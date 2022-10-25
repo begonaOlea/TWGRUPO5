@@ -5,7 +5,7 @@
 
 	
 	<!--  otra unidad persistenci para ir HR de oracle -->
-	<persistence-unit name="OracleHRPU" 
+	<persistence-unit name="Pepito" 
 	                  transaction-type="RESOURCE_LOCAL">          
 		
 		<class>com.curso.jpa.entidades.Trabajo</class>
