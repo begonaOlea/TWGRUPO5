@@ -17,7 +17,27 @@ public class ProductoDataBaseDAO
 	
 	@Override
 	public void add(Producto entidad) {
-		// TODO Auto-generated method stub
+        try {
+        	int newId = 0;
+        	newId = getUltimoIdProducto() + 1;
+        	
+			PreparedStatement ps = con.prepareStatement(
+					   "INSERT INTO PRODUCTOS " +
+					    "(ID_PRODUCTO, DESCRIPCION, PRECIO, STOCK) " +
+					    "VALUES (?, ?, ?, ?)");
+			ps.setInt(1, newId);
+			ps.setString(2, entidad.getDescripcion());
+			ps.setDouble(3, entidad.getPrecio());
+			ps.setInt(4,  entidad.getStock());
+			ps.executeUpdate();
+			System.out.println("grabo ok el producto");
+			
+			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+			throw new RuntimeException("No se pudo crear el producto " 
+			                            + e.getMessage(),e);
+		}
 		
 	}
 
@@ -36,8 +56,7 @@ public class ProductoDataBaseDAO
 				p.setPrecio(rs.getDouble("PRECIO"));
 				p.setStock(rs.getInt("STOCK"));
 				productos.add(p);
-			}
-			
+			}			
 		} catch (SQLException e) {			
 		//	e.printStackTrace();
 			// lanzamos una neuva excepcion pero le 
@@ -46,7 +65,6 @@ public class ProductoDataBaseDAO
 			throw new RuntimeException("DB JDBC API. " + e.getMessage(), e);
 			
 		}
-        
 		return productos;
 	}
 
@@ -67,5 +85,23 @@ public class ProductoDataBaseDAO
 		// TODO Auto-generated method stub
 		
 	}
+	
+	private int getUltimoIdProducto(){
+	     String consulta = "SELECT max(ID_PRODUCTO) FROM HR.PRODUCTOS";
+	     try {
+			ResultSet rs = con.createStatement().executeQuery(consulta);
+		    if (rs.next()) {
+		    	return rs.getInt(1);
+		    }else {
+		    	return 0;
+		    }
+		    
+	     } catch (SQLException e) {			
+			e.printStackTrace();
+			throw new RuntimeException("No pudo obtener el último id");
+		}
+	     
+	}
+	
 
 }

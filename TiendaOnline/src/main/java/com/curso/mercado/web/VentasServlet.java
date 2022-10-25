@@ -16,8 +16,7 @@ import com.curso.mercado.servicios.excepciones.VentasException;
 public class VentasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
-	
+		
     public VentasServlet() {
         super();
     }
