@@ -5,10 +5,13 @@
 
 	
 	<!--  otra unidad persistenci para ir HR de oracle -->
-	<persistence-unit name="Pepito" 
+	<persistence-unit name="OraceHRPU" 
 	                  transaction-type="RESOURCE_LOCAL">          
 		
 		<class>com.curso.jpa.entidades.Trabajo</class>
+		<class>com.curso.jpa.entidades.Empleado</class>
+		<class>com.curso.jpa.entidades.Customer</class>
+		<class>com.curso.jpa.entidades.Record</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
