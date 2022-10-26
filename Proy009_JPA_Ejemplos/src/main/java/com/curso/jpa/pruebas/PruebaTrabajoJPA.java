@@ -26,7 +26,12 @@ public class PruebaTrabajoJPA {
 		//3. Obtener el trabajo con el id "AD_VP"
 		
 		Trabajo t = em.find(Trabajo.class, "AD_VP");
-		System.out.println(t);
+		if(t == null ) {
+			System.out.println("no existe el trabajo AD_VP");
+		}else {
+			System.out.println(t);
+		}
+	
 		
 		//4. Crear un trabajo
 		Trabajo tNuevo = new Trabajo("BE_OL",
@@ -70,7 +75,8 @@ public class PruebaTrabajoJPA {
 		em.getTransaction().begin();
 	
 		System.out.println("... merge");
-		Trabajo trabajoEnBD = em.merge(otraVezTrabajoModif); 
+		Trabajo trabajoEnBD = em.merge(otraVezTrabajoModif); 			
+		
 		System.out.println("... después de  merge");
 		//otraVezTrabajoModif no esta attached contra la bd
 		otraVezTrabajoModif.setTituloTrabajo("alsdfjalsjdflakjs");
@@ -109,8 +115,7 @@ public class PruebaTrabajoJPA {
 		for(Trabajo trabajo : lista) {
 			System.out.println(trabajo);
 		}
-		
-		
+				
 		
 	}
 

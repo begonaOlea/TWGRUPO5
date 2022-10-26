@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "JOBS",schema = "HR")
@@ -27,6 +28,10 @@ public class Trabajo implements Serializable {
      private Double salarioMin;
 	 @Column(name="MAX_SALARY")
      private Double salarioMax;
+
+	 @Transient
+	 private boolean isSelected;
+	 
      public Trabajo() {}
 
 
