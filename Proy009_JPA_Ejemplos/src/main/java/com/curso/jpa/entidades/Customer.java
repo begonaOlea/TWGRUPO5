@@ -25,7 +25,9 @@ public class Customer implements Serializable{
 	private Record record;
 	
 	//lista de todos los pedidos del cliente
-	@OneToMany(mappedBy="cliente", fetch = FetchType.LAZY) //LAZY
+	@OneToMany(mappedBy="cliente", 
+			   fetch = FetchType.LAZY,
+			   cascade = CascadeType.PERSIST) //LAZY / EAGER
 	// mappedby es el nombre del atributo de la clase Order
 	// que tiene la relación ManyToOne
 	private Collection<Order> pedidos;
