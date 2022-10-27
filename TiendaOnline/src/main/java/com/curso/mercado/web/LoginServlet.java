@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.curso.mercado.entidades.Usuario;
+import com.curso.mercado.persistencia.ProductoJPADAO;
 
 @WebServlet(urlPatterns = "login",loadOnStartup = 1)
 public class LoginServlet extends HttpServlet {
@@ -30,6 +31,8 @@ public class LoginServlet extends HttpServlet {
     	//contexto de la aplicación
     	// CREO UN ATRIBUTO DE ÁMBITO DE APLICACIÓN
     	// es para todos los usuarios en todas las pagínas/Servlets/jsp
+    	
+    	
     	System.out.println("..... " + config.getServletContext());
     	config.getServletContext().setAttribute("tituloTienda", "LAS MARAVILLAS");
     }
@@ -39,11 +42,12 @@ public class LoginServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		ProductoJPADAO p = new ProductoJPADAO();
+		
 		//leer parametros
 		
 		String nombre = request.getParameter("nombre");
 		String rol = request.getParameter("rol");
-
 		
 		
 		if(nombre == null || nombre.trim().length()==0) {

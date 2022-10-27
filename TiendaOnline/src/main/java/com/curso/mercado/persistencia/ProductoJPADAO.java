@@ -2,10 +2,16 @@ package com.curso.mercado.persistencia;
 
 import java.util.List;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import com.curso.mercado.entidades.Producto;
 
 public class ProductoJPADAO implements GenericDAO<Producto> {
 
+	public static 	EntityManagerFactory factory =
+			Persistence.createEntityManagerFactory("OracleHRPU");
+	
 		
 	@Override
 	public void add(Producto entidad) {
