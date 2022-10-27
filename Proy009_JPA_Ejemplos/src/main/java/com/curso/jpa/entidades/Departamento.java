@@ -7,6 +7,16 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="DEPARTMENTS")
+@NamedQueries({
+	@NamedQuery(name=ConsultasRRHH.DEPARTAMENTO_ALL, 
+			    query="SELECT d FROM Departamento d"),
+	@NamedQuery(name="Departamento.findByManager", 
+	            query="SELECT d FROM Departamento d "
+	            		+ "WHERE d.idManager= :idManager"),
+	@NamedQuery(name="Departamento.findSinManager", 
+	           query="SELECT d FROM Departamento d "
+	           		+ "WHERE d.idManager IS NULL"),
+})
 public class Departamento implements Serializable {
 	
 	@Id
@@ -15,8 +25,7 @@ public class Departamento implements Serializable {
 	
 	@Column(name="DEPARTMENT_NAME")
 	private String nombreDepartamento;
-	
-	
+		
 	@Column(name="MANAGER_ID")
 	private Integer idManager;
 	
@@ -80,9 +89,6 @@ public class Departamento implements Serializable {
 		return "Departamento [id=" + id + ", nombreDepartamento=" + nombreDepartamento + ", idManager=" + idManager
 				+ ", idLocalidad=" + idLocalidad + "]";
 	}
-	
-	
-	
 	
 
 }

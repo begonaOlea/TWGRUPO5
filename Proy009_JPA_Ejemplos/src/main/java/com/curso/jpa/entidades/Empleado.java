@@ -46,8 +46,7 @@ public class Empleado implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "DEPARTMENT_ID")
 	//private Integer idDepartamento;
-	private Departamento departamento;
-	
+	private Departamento departamento;	
 
 	public Empleado() {
 		super();
