@@ -113,6 +113,7 @@ WHERE D.LOCATION_ID= 1700;
 		// filtro   ID TRABAJO
 		 //...
 		
+	    // ( nombre AND apellido AND saliro <  )  or (idjob)
 		
 		String nombre =  "Steven";//null; //""
 		String apellido =  null; //"King";
