@@ -40,15 +40,7 @@ public class PruebasCriteria {
 		
 		//FROM
 		Root<Departamento> fromDpto = cq.from(Departamento.class);
-		
-		//CONDICIONES 		 WHERE
-		//    idMangaer = 22
-		Predicate condicion = cb.equal(fromDpto.get("idMangaer"), 22);
-		// WHERE descripcion like '%marketing%'
-		Predicate condicion2 = cb.like(fromDpto.get("descripcion"), "%marketing%");
-		
-		
-		
+
 		Predicate condicionLoc = null;
 		Predicate condicionManager = null;
 		
@@ -72,6 +64,9 @@ public class PruebasCriteria {
 		
 		//WHERE
 		if(condicionFinal != null) cq.where(condicionFinal);
+		
+		//ORDER BY
+		cq.orderBy(cb.desc(fromDpto.get("nombreDepartamento")));
 		
 		//ejecutar la consulta
 		Query qCriteria = em.createQuery(cq);
