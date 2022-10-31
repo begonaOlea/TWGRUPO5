@@ -9,7 +9,7 @@
 <body>
 
 <h1> ${ saludo } </h1>
-<h3> ${ saludo } </h3>
+<h3> ${ linea1 } </h3>
 
 </body>
 </html>

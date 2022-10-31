@@ -16,6 +16,15 @@ public class HomeController {
 	}
 	
 	
+	@RequestMapping("/saludo")
+	public String saludo(Model model) {
+		model.addAttribute("saludo", "Bienvenido a la tienda Online !!");
+		model.addAttribute("linea1", "Hola a todos");
+		
+		return "home"; 
+	}
+	
+	
 	
 	
 }
