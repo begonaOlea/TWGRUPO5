@@ -22,8 +22,7 @@ public class PedidoServiceImp implements PedidosService {
 
 	@Autowired
 	@Qualifier("pedidoRepoJPA")
-	private PedidoRepository repo;
-	
+	private PedidoRepository repo;	
 	
 	public PedidoServiceImp() {
 		log.info("... instanciando PedidoServiceImp " + repo);
