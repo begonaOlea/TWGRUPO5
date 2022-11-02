@@ -11,7 +11,10 @@
 <body>
 
 
-<h2> Bienvenido  ${nombre} !!!!!!</h2>
+<h2> Bienvenido  ${usuario.nombre} !!!!!!</h2>
+rol :   ${usuario.rol}
+
+<a href="pedidos">Listar Mis Pedidos</a>
 
 </body>
 </html>

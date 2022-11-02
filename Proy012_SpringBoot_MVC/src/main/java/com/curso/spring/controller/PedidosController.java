@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.curso.spring.entidades.Pedido;
+import com.curso.spring.entidades.Usuario;
 import com.curso.spring.servicios.PedidosService;
 
 @Controller
-@SessionAttributes("nombre")
+@SessionAttributes("usuario")
 public class PedidosController {
 
 	@Autowired
@@ -22,9 +23,8 @@ public class PedidosController {
 	public String pedidos(Model model) {
 		
 		//pedir la lista de pedidos del usuarios session
-		String usr = (String) model.getAttribute("nombre");
-		System.out.println("en pedidod " + usr);
-		Collection<Pedido> lista = pedidoService.getPedidos(usr);
+		Usuario usr = (Usuario) model.getAttribute("usuario");	
+		Collection<Pedido> lista = pedidoService.getPedidos(usr.getNombre());
 		model.addAttribute("listaPedidos", lista);
 		
 		return "pedidos";
