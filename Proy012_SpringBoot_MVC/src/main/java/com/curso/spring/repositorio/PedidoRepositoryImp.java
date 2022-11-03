@@ -56,4 +56,9 @@ public class PedidoRepositoryImp implements PedidoRepository {
 		return pedidos.values();
 	}
 
+	@Override
+	public Pedido getById(Integer id) {		
+		return pedidos.get(id);
+	}
+	
 }

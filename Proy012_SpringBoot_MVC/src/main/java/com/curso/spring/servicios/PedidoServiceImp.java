@@ -51,5 +51,10 @@ public class PedidoServiceImp implements PedidosService {
 			return repo.getPedidosByUser(user);
 		}
 	}
+	
+	@Override
+	public Pedido getPedido(Integer id) {		
+		return repo.getById(id);
+	}
 
 }
