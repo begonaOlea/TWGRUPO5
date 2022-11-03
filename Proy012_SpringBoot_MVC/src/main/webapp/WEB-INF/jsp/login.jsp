@@ -18,9 +18,13 @@
 <form:form action="login" method="post" 
            modelAttribute="usuarioForm" >
    <form:label path="nombre">Nombre usuario:</form:label>
-   <form:input path="nombre" /> <br/>
+   <form:input path="nombre" /> 
+   <form:errors path="nombre"></form:errors>
+   <br/>
    <form:label path="clave">Clave:</form:label>
-   <form:password  path="clave" /> <br/>
+   <form:password  path="clave" /> 
+   <form:errors path="clave"></form:errors>
+   <br/>
    <form:button>Login</form:button>
 </form:form>
 

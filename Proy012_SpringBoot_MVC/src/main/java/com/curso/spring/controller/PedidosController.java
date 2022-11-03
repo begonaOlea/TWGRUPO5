@@ -56,12 +56,11 @@ public class PedidosController {
 		
 		//hemos declarado opicional id
 		//orElse(alternativa)  si no aparece devuelve null
-		Integer idCliente = id.orElse(null);
-		if(id.isEmpty()) {
+		Integer idPedido = id.orElse(null);
+		if(id.isEmpty()) {  // idPedido == null
 			return "redirect:/pedidos";
 		}
-		System.out.println(idCliente);
-		Pedido p = pedidoService.getPedido(idCliente);
+		Pedido p = pedidoService.getPedido(idPedido);
 		model.addAttribute("pedido", p);
 		return "detalle-pedido";
 	}
