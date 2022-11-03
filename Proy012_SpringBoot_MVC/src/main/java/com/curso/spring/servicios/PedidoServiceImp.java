@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.curso.spring.entidades.Pedido;
+import com.curso.spring.repositorio.PedidoJPARepository;
 import com.curso.spring.repositorio.PedidoRepository;
 
 @Service
@@ -22,39 +23,52 @@ public class PedidoServiceImp implements PedidosService {
 
 	private static Logger log = LoggerFactory.getLogger(PedidoServiceImp.class);
 
+	//@Autowired
+	//@Qualifier("pedidoRepo")
+	//private PedidoRepository repo;	
+	
 	@Autowired
-	@Qualifier("pedidoRepo")
-	private PedidoRepository repo;	
+	private PedidoJPARepository repoJPA;
 	
 	public PedidoServiceImp() {
-		log.info("... instanciando PedidoServiceImp " + repo);
+		log.info("... instanciando PedidoServiceImp " + repoJPA);
 	}
 	
 	@PostConstruct
 	public void init() {
-		log.info("... postcosntruct " + repo);
+		log.info("... postcosntruct " + repoJPA);
 	}
 
 	@Override
 	public void generarPedido(Pedido p) {
 
 		log.info("gestiono un pedido");
-		repo.add(p);
+		//repo.add(p);
 		// inventariorepo.update(inventario)
+		repoJPA.saveAndFlush(p);
 	}
 	
 	@Override
 	public Collection<Pedido> getPedidos(String user) {
 		if(user == null ) {
-			return repo.getAll();
+			//return repo.getAll();
+			return repoJPA.findAll();
 		}else {
-			return repo.getPedidosByUser(user);
+			//return repo.getPedidosByUser(user);
+			Pedido pFiltro = new Pedido();
+			pFiltro.setUser(user);
+			
+			return repoJPA.findByUser(user);
+			
 		}
 	}
 	
 	@Override
-	public Pedido getPedido(Integer id) {		
-		return repo.getById(id);
+	public Pedido getPedido(Integer id) {
+		
+		return repoJPA.getReferenceById(id);
+		
+		//return repo.getById(id);
 	}
 
 }

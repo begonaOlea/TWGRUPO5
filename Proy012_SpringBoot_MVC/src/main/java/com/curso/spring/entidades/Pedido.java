@@ -4,15 +4,40 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-//@Entity
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name="PEDIDOS")
+//@NamedQueries({
+//	@NamedQuery(name="Pedido.findAll", 
+//			    query = "SELECT p FROM Pedido p"),
+//	@NamedQuery(name="Pedido.findbyIdUsuario", 
+//    query = "SELECT p FROM Pedido p WHERE p.user = :usuarioNombre")
+//	
+//})
 public class Pedido implements Serializable{
 
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PED_SEQ")
+	 @SequenceGenerator(sequenceName = "PEDIDO_SEQ", name = "PED_SEQ", allocationSize=1)	
 	 private Integer id;
-	 private String  user;
-	 private String desc;
-	 private Date fechaPedido;
-	 private boolean entregado;
 	 
+	 @Column(name="USUARIO")
+	 private String  user;
+	 
+	 @Column(name="DESCRIPCION")
+	 @NotNull
+	 private String desc;
+	 
+	 @Temporal(TemporalType.TIMESTAMP)
+	 @Column(name="FECHA_PEDIDO")
+	 private Date fechaPedido;
+	 
+	 
+	 @Column(name="ENTREGADO")
+	 private boolean entregado;
+
 	 
 	 public Pedido() {}
 
