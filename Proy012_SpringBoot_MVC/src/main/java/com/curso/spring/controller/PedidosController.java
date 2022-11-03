@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -64,6 +66,27 @@ public class PedidosController {
 		model.addAttribute("pedido", p);
 		return "detalle-pedido";
 	}
+	
+	
+	@GetMapping("/alta-pedido")
+	public String verFormularioAlta(Model model) {
+		model.addAttribute("pedidoForm", new Pedido());
+		return "alta-pedido";
+	}
+	
+	
+	@PostMapping("/alta-pedido")
+	public String altaPedido(Model model, 
+			@ModelAttribute("pedidoForm") Pedido nuevoPedido ) {
+		
+		nuevoPedido.setFechaPedido(new java.util.Date());
+		
+		return "redirect:/pedidos";
+	}
+	
+	
+	//@GetMapping("/pedido/delete/{idPedido}")
+	//public String borraPedido(@PathVariable)
 	
 	
 	
