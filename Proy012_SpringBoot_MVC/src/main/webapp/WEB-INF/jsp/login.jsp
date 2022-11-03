@@ -15,11 +15,12 @@
 
 <h2> Login</h2>
 
-<form:form action="login" method="post" modelAttribute="usuario" >
+<form:form action="login" method="post" 
+           modelAttribute="usuarioForm" >
    <form:label path="nombre">Nombre usuario:</form:label>
    <form:input path="nombre" /> <br/>
    <form:label path="clave">Clave:</form:label>
-   <form:input path="clave" /> <br/>
+   <form:password  path="clave" /> <br/>
    <form:button>Login</form:button>
 </form:form>
 

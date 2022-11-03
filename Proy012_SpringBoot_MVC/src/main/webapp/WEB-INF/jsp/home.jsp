@@ -14,7 +14,14 @@
 <h2> Bienvenido  ${usuario.nombre} !!!!!!</h2>
 rol :   ${usuario.rol}
 
-<a href="pedidos">Listar Mis Pedidos</a>
+<c:if test="${usuario.rol eq 'cliente'}">
+	<a href="pedidos/${usuario.nombre}">Listar Mis Pedidos</a>
+</c:if>
+<c:if test="${usuario.rol eq 'admin'}">
+	<a href="pedidos">Listar Todos los Pedidos</a>
+</c:if>
+
+
 
 </body>
 </html>

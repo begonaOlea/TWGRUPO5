@@ -20,7 +20,7 @@ public class LoginController {
 	//formulario en el que pido usuario y clave
 	@GetMapping("/login")
 	public String loginPage(Model model) {
-		model.addAttribute("usuario", new Usuario());
+		model.addAttribute("usuarioForm", new Usuario());
 		return "login";
 	}
 	
@@ -28,10 +28,10 @@ public class LoginController {
 	@PostMapping("/login")
 	public String irAHome(
 			Model model,
-			@ModelAttribute("usuario") Usuario usuario
+			@ModelAttribute("usuarioForm") Usuario usuario
 			) {
 		
-		// boolean valido = loginService.validaLog(nombre,clave)
+		 boolean valido = true; // loginService.validaLog(nombre,clave)
 		//TODO  llamara un service para que haga la tare login
 		
 		if(usuario.getNombre().trim().equalsIgnoreCase("LUIS")) {
@@ -39,6 +39,7 @@ public class LoginController {
 		}else {
 			usuario.setRol("admin");	
 		}
+		if(valido) model.addAttribute("usuario", usuario);
 
 		return "home";
 	}

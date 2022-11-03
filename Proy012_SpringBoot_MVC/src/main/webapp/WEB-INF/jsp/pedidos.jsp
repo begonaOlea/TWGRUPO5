@@ -11,9 +11,8 @@
 <body>
 
 
-<h2> Lista de pedidos !!</h2>
+<h2> Lista de pedidos  del cliente ${usuario.nombre}</h2>
 
-Usuario  ${nombre}  ...
 <ul>
 
 <c:forEach items="${listaPedidos}" var="pedido">

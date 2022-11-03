@@ -50,5 +50,10 @@ public class PedidoRepositoryImp implements PedidoRepository {
 		log.info(lista.toString());
 		return lista;
 	}
+	
+	@Override
+	public Collection<Pedido> getAll() {	
+		return pedidos.values();
+	}
 
 }

@@ -45,7 +45,11 @@ public class PedidoServiceImp implements PedidosService {
 	
 	@Override
 	public Collection<Pedido> getPedidos(String user) {
-		return repo.getPedidosByUser(user);
+		if(user == null ) {
+			return repo.getAll();
+		}else {
+			return repo.getPedidosByUser(user);
+		}
 	}
 
 }
