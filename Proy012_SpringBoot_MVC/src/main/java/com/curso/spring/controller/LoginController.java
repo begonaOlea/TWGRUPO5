@@ -32,10 +32,15 @@ public class LoginController {
 			) {
 		
 		// boolean valido = loginService.validaLog(nombre,clave)
-		usuario.setRol("cliente");		
+		//TODO  llamara un service para que haga la tare login
 		
+		if(usuario.getNombre().trim().equalsIgnoreCase("LUIS")) {
+			usuario.setRol("cliente");	
+		}else {
+			usuario.setRol("admin");	
+		}
+
 		return "home";
-		//return "login";
 	}
 	
 	
