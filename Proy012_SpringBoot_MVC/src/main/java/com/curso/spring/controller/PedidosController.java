@@ -62,18 +62,17 @@ public class PedidosController {
 		if(id.isEmpty()) {  // idPedido == null
 			return "redirect:/pedidos";
 		}
-		Pedido p = pedidoService.getPedido(idPedido);
+		Pedido p = pedidoService.getPedido(idPedido).get();
 		model.addAttribute("pedido", p);
 		return "detalle-pedido";
-	}
-	
+	}	
 	
 	@GetMapping("/alta-pedido")
-	public String verFormularioAlta(Model model) {
+	public String verFormularioAlta(Model model
+			) {
 		model.addAttribute("pedidoForm", new Pedido());
 		return "alta-pedido";
-	}
-	
+	}	
 	
 	@PostMapping("/alta-pedido")
 	public String altaPedido(Model model, 
@@ -88,6 +87,9 @@ public class PedidosController {
 	//@GetMapping("/pedido/delete/{idPedido}")
 	//public String borraPedido(@PathVariable)
 	
+	
+
+	 
 	
 	
 }

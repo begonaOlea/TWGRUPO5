@@ -25,6 +25,8 @@ public class Pedido implements Serializable{
 	 
 	 @Column(name="USUARIO")
 	 private String  user;
+
+	 
 	 
 	 @Column(name="DESCRIPCION")
 	 @NotNull
@@ -96,11 +98,9 @@ public class Pedido implements Serializable{
 		return entregado;
 	}
 
-
 	public void setEntregado(boolean entregado) {
 		this.entregado = entregado;
 	}
-
 
 	@Override
 	public int hashCode() {
