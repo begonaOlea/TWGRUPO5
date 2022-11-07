@@ -76,5 +76,16 @@ public class PedidoServiceImp implements PedidosService {
 		// return repo.getById(id);
 	}
 
+	@Override
+	public Pedido modificar(Pedido p) {		
+		repoJPA.save(p);		
+		return p;
+	}
+	
+	@Override
+	public void borrar(Integer id) {
+		repoJPA.deleteById(id);	
+	}
+
 
 }

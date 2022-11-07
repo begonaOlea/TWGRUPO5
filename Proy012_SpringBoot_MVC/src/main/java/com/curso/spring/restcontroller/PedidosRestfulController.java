@@ -47,31 +47,21 @@ public class PedidosRestfulController {
 		
 		return pConId;
 	}
+
+	//UPDATE
+	@PutMapping("/ws/pedidos")
+	public Pedido update(@RequestBody Pedido pedidoAModificar) {
+				
+		Pedido  pModif = pedidoService.modificar(pedidoAModificar);
+		
+		return pModif;
+	}	
 	
-//	
-//		
-//	//DELETE
-//	
-//	//UPDATE
-//	@PutMapping("/ws/pedidos")
-//	public Pedido update(@RequestBody Pedido newPedido) {
-//		
-//		//Pedido  pConId = pedidoService.generarPedido(newPedido);
-//		
-//		return null;
-//	}
-//	
-//	
-//	// GET BY ID
-//		@DeleteMapping("/ws/pedidos/{id}")
-//		public void byId(@PathVariable Integer id){
-//	    
-//			//System.out.println(id);
-//			//Optional<Pedido>  p = pedidoService.getPedido(id);
-//			//return p.get();
-//		}
-//	
-	
+	//DELETE
+	@DeleteMapping("/ws/pedidos/{id}")
+	public void deleteById(@PathVariable Integer id){	       
+			pedidoService.borrar(id);
+	}
 	
 
 }

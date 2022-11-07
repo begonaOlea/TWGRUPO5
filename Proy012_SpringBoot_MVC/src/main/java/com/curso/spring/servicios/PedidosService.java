@@ -10,5 +10,7 @@ public interface PedidosService {
 	Pedido generarPedido(Pedido p);
 	Collection<Pedido> getPedidos(String user);
 	Optional<Pedido> getPedido(Integer id);
+	Pedido modificar(Pedido p);
+	void borrar(Integer id);
 
 }
