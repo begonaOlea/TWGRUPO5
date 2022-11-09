@@ -3,20 +3,33 @@ package com.curso.spring.restcontroller;
 import java.util.Collection;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.spring.entidades.Pedido;
 import com.curso.spring.excepciones.PedidosException;
 import com.curso.spring.servicios.PedidosService;
 
+
 @RestController
+@CrossOrigin(origins = { "http://localhost:4200" } , 
+methods = {RequestMethod.GET, 
+		RequestMethod.POST, 
+		RequestMethod.DELETE, 
+		RequestMethod.PUT,
+		RequestMethod.OPTIONS})
 public class PedidosRestfulController {
 	
 	@Autowired
@@ -60,9 +73,18 @@ public class PedidosRestfulController {
 	
 	//DELETE
 	@DeleteMapping("/ws/pedidos/{id}")
-	public void deleteById(@PathVariable Integer id) throws PedidosException{	       
+	public void deleteById(@PathVariable Integer id)  throws PedidosException {		
 			pedidoService.borrar(id);
+	
 	}
 	
+	
+	@ExceptionHandler({PedidosException.class, Exception.class})
+	public String  manejarExcepcion(HttpServletRequest req, Exception e) {
+	    return  "error " + e.getMessage();
+		
+	}
+	
+
 
 }
