@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.spring.entidades.Pedido;
+import com.curso.spring.excepciones.PedidosException;
 import com.curso.spring.servicios.PedidosService;
 
 @RestController
@@ -59,7 +60,7 @@ public class PedidosRestfulController {
 	
 	//DELETE
 	@DeleteMapping("/ws/pedidos/{id}")
-	public void deleteById(@PathVariable Integer id){	       
+	public void deleteById(@PathVariable Integer id) throws PedidosException{	       
 			pedidoService.borrar(id);
 	}
 	
